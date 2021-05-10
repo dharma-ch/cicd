@@ -33,15 +33,15 @@
 				<cloudHubDeployment>
 				<uri>https://anypoint.mulesoft.com</uri>
 				<server>${server}</server>
-				<muleVersion>4.3.0</muleVersion>
+				<muleVersion>${app.runtime}</muleVersion>
 				<uri>${app.runtime}</uri>
 				<username>chdr</username>
 				<password>Indi@n143</password>
 				<environment>${environment}</environment>
 				<applicationName>${app.name}</applicationName>
 				<objectStoreV2>true</objectStoreV2>
-				<workers>1</workers>
-				<workerType>Micro</workerType>
+				<workers>${workers}</workers>
+				<workerType>${workerType}</workerType>
 				</cloudHubDeployment>
 				</configuration>
 			</plugin>
