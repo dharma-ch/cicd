@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:os="http://www.mulesoft.org/schema/mule/os" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd">
+	<os:object-store name="Object_store" doc:name="Object store" doc:id="901e98be-6bdb-4070-961f-a96a2bf3fe0d" maxEntries="100" entryTtl="2" entryTtlUnit="HOURS" />
+	<flow name="os_sheFlow" doc:id="006d269a-0bd4-4f00-90b8-c007a580acae" >
+		<scheduler doc:name="Scheduler" doc:id="fd3e4986-a455-44d7-bb96-83d64c0aaac7" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="1" timeUnit="MINUTES"/>
+			</scheduling-strategy>
+		</scheduler>
+		<set-payload value="#[now()]" doc:name="Set Payload" doc:id="ae2cda4f-d7ed-4614-887f-27cce8132cce" />
+		<os:store doc:name="Store" doc:id="a7ce0e2c-f18a-47b7-b6e3-22f2b0eaa874" key="LMD" objectStore="Object_store"/>
+	</flow>
+</mule>
